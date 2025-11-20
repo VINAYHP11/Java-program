@@ -1,30 +1,29 @@
-// Demonstrates encapsulation with internal logic (grade calculation)
+// Demonstrates encapsulation of multiple private variables in a class
 
-class ReportCard {
-    private int marks; // hidden variable
+class Employee {
+    private String name;
+    private int id;
+    private double salary;
 
-    // Setter with validation
-    public void setMarks(int marks) {
-        if (marks >= 0 && marks <= 100) {
-            this.marks = marks;
-        } else {
-            System.out.println("Invalid marks! Enter between 0 and 100.");
-        }
+    // Setter method for all attributes
+    public void setEmployee(String name, int id, double salary) {
+        this.name = name;
+        this.id = id;
+        this.salary = salary;
     }
 
-    // Getter that provides processed data
-    public String getGrade() {
-        if (marks >= 90) return "A";
-        else if (marks >= 75) return "B";
-        else if (marks >= 50) return "C";
-        else return "Fail";
+    // Method to display data
+    public void showEmployee() {
+        System.out.println("Employee Name: " + name);
+        System.out.println("Employee ID: " + id);
+        System.out.println("Salary: " + salary);
     }
 }
 
-public class Encapsulation_GradeSystem {
+public class Encapsulation_MultipleAttributes {
     public static void main(String[] args) {
-        ReportCard r = new ReportCard();
-        r.setMarks(88);
-        System.out.println("Grade: " + r.getGrade());
+        Employee e = new Employee();
+        e.setEmployee("Aisha", 101, 55000);
+        e.showEmployee();
     }
 }
